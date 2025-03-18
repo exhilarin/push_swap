@@ -1,5 +1,5 @@
 NAME= push_swap
-SRCS= push_swap.c
+SRCS= push_swap.c take_argv.c utils.c
 CC= cc
 CFLAGS= -Wall -Wextra -Werror -g
 PRINTF_PATH = ./ft_printf
@@ -8,10 +8,10 @@ LIBFT_PATH = ./libft
 LIBFT= $(LIBFT_PATH)/libft.a
 OBJS= $(SRCS:.c=.o)
 
-all: $(PRINTF) $(NAME)
+all: $(NAME)
 
 $(NAME): $(LIBFT) $(PRINTF) $(OBJS)
-	$(CC) $(CFLAGS) $(LIBFT) $(PRINTF) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(PRINTF) -o $(NAME)
 
 $(PRINTF):
 	@echo "Checking printf repository..."
