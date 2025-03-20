@@ -1,5 +1,5 @@
 NAME= push_swap
-SRCS= push_swap.c take_argv.c utils.c
+SRCS= push_swap.c take_argv.c utils.c node.c
 CC= cc
 CFLAGS= -Wall -Wextra -Werror -g
 PRINTF_PATH = ./ft_printf

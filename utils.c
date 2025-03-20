@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 02:29:03 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/18 06:09:56 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/20 01:56:22 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ int	check_zero(const char *str)
 	return (0);
 }
 
-void error(void)
+int error(void)
 {
 	ft_printf("Error!");
+	return (0);
 }

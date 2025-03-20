@@ -13,10 +13,15 @@ typedef struct s_stack
 	
 } t_stack;
 
-void	error(void);
+int		error(void);
 long	ft_atol(const char *str);
 int		check_argv(char *av[]);
 int		check_zero(const char *str);
+void	print_stack(t_stack *stack);
+void	take_argv(t_stack **stack_a, char *av[]);
+void	add_to_stack(t_stack **stack, int data);
+t_stack	*new_node(int data);
+
 
 #endif
 
