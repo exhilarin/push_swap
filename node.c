@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:52:50 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/20 02:56:31 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/20 18:47:39 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,14 @@ void	add_to_stack(t_stack **stack, int data)
 	}
 }
 
-void	print_stack(t_stack *stack)
+void print_stack(t_stack *stack)
 {
-	stack = stack->next;
-	while (stack)
-	{
-		ft_printf("%d", stack->data);
-		if (stack->next)
-			ft_printf(" ");
-		stack = stack->next;
-	}
+    while (stack)
+    {
+        ft_printf("[%d]", stack->data);
+        if (stack->next)
+            ft_printf(" -> ");
+        stack = stack->next;
+    }
+	ft_printf("\n");
 }
