@@ -29,7 +29,6 @@ void    push_b(t_stack *stack_a, t_stack *stack_b);
 void	free_stack(t_stack *stack);
 int		check_argv(char **splitted);
 int		check_zero(const char *str);
-int		check_zero(const char *str);
 char	*all_in_one(char const *s1, char const *s2);
 char	**seperate_argv(char *av[]);
 

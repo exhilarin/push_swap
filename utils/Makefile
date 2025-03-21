@@ -1,19 +1,21 @@
 NAME = utils.a
-SRCS = check_zero.c all_in_one.c error.c ft_atol.c ft_split.c
+SRCS = all_in_one.c ft_atol.c seperate_str.c ft_strlen.c \
+	ft_substr.c ft_strdup.c error.c is_digit.c \
+
 CFLAGS = -Wall -Wextra -Werror
 CC = cc
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJS) 
+$(NAME): $(OBJS)
 	ar -rc $(NAME) $(OBJS)
 
 clean:
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean: clean
-	rm -f $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
 

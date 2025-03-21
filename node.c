@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:52:50 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/21 06:53:17 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/21 15:29:58 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void	add_front_to_stack(t_stack **stack, int data)
 {
 	t_stack *new;
 
+	if (!stack)
+		return;
+
 	new = new_node(data);
 	if (!new)
 		return;
@@ -56,32 +59,38 @@ void	add_front_to_stack(t_stack **stack, int data)
 	*stack = new;
 }
 
-void	del_one_from_stack(t_stack **stack, int data)
+void del_one_from_stack(t_stack **stack, int data)
 {
-	if (!stack || !*stack)
+	if (!stack || !*stack) // Stack veya baş düğüm NULL ise işlem yapma
 		return;
-	
+
 	t_stack *temp = *stack;
-	
+	t_stack *prev = NULL;
+
+	// İlk düğüm silinecekse
 	if (temp->data == data)
 	{
-		*stack = temp->next;
+		*stack = temp->next; // Başı güncelle
 		free(temp);
 		return;
 	}
-	
-	while (temp->next)
+
+	// Diğer düğümleri kontrol et
+	while (temp && temp->data != data)
 	{
-		if (temp->next->data == data)
-		{
-			t_stack *to_delete = temp->next;
-			temp->next = to_delete->next;
-			free(to_delete);
-			return;
-		}
+		prev = temp;
 		temp = temp->next;
 	}
+
+	// Eğer veri bulunamazsa
+	if (!temp)
+		return;
+
+	// Bağlantıyı güncelle ve düğümü sil
+	prev->next = temp->next;
+	free(temp);
 }
+
 
 
 void print_stack(t_stack *stack)

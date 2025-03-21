@@ -11,7 +11,6 @@ OBJS= $(SRCS:.c=.o)
 all: $(NAME) clean
 	@clear
 
-
 $(NAME): $(PRINTF) $(UTILS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(UTILS) $(PRINTF) -o $(NAME)
 
