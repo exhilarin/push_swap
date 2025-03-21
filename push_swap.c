@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 05:07:29 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/21 06:50:53 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int main(int ac, char *av[])
 		return (0);
 	take_argv(&stack_a, av);
 	print_stack(stack_a);
-	free_stack(stack_a);
-	free_stack(stack_b);
+	push_b(stack_a, stack_b);
+	print_stack(stack_b);
+	// free_stack(stack_a);
+	// free_stack(stack_b);
 	return (0);
 }

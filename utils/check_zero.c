@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   check_zero.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 11:42:02 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 00:18:17 by iguney           ###   ########.fr       */
+/*   Created: 2025/03/20 23:49:12 by iguney            #+#    #+#             */
+/*   Updated: 2025/03/21 02:23:04 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "utils.h"
 
-# include "../ft_printf/ft_printf.h"
-# include <stdlib.h>
-# include <unistd.h>
-
-
-#endif

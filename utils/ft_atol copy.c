@@ -1,49 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tools.c                                            :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/21 02:22:48 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 06:51:27 by iguney           ###   ########.fr       */
+/*   Created: 2025/03/20 23:48:04 by iguney            #+#    #+#             */
+/*   Updated: 2025/03/20 23:48:06 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_zero(const char *str)
+long	ft_atol(const char *str)
 {
-	int	i;
-	int len;
-	int check;
+	int	    i;
+	int     sign;
+	long	result;
 
 	i = 0;
-	check = 0;
-	len = ft_strlen(str);
-	if (!str)
-		return (0);
-	while (str[i])
+	sign = 1;
+	result = 0;
+	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
+		|| str[i] == '\f' || str[i] == '\r')
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '0')
-			check++;
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
-	if (check == len)
-		return (1);
-	return (0);
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = (result * 10) + (str[i] - '0');
+		i++;
+	}
+	return (result * sign);
 }
-
-void free_stack(t_stack *stack)
-{
-    t_stack *tmp;
-
-    while (stack)
-    {
-        tmp = stack;
-        stack = stack->next;
-        free(tmp);
-    }
-    free(stack);
-}
-

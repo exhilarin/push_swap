@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 02:13:11 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 04:56:10 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/21 06:12:25 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	check_argv(char **splitted)
 	while (splitted[++i])
 	{
 		j = 1;
+		if (!is_digit(splitted[i]))
+			return(error());
 		if (!(!check_zero(splitted[i]) || ft_atol(splitted[i]) == 0))
 			return (error());
 		if (INT_MAX < ft_atol(splitted[i]) || INT_MIN > ft_atol(splitted[i]))
@@ -37,10 +39,10 @@ int	check_argv(char **splitted)
 
 char	**seperate_argv(char *av[])
 {
-	int i;
-	char *str;
-	char *tmp;
-	char **splitted = NULL;
+	int		i;
+	char	*str;
+	char	*tmp;
+	char	**splitted = NULL;
 
 	str = ft_strdup(av[1]);
 	if (!av[2])
@@ -67,10 +69,10 @@ void take_argv(t_stack **stack_a, char *av[])
 
     splitted = seperate_argv(av);
     if (check_argv(splitted))
-    {
+	{
         i = -1;
         while (splitted[++i])
-            add_to_stack(stack_a, ft_atol(splitted[i]));
+            add_back_to_stack(stack_a, ft_atol(splitted[i]));
     }
     i = 0;
     while(splitted[i])

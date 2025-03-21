@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:50:29 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/20 18:52:51 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/21 06:15:50 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	swap_a(t_stack *stack_a)
 	int temp;
 	t_stack *head;
 
-	if (!stack_a)
-		return ;
-	if (!stack_a->next)
+	if (!stack_a || !stack_a->next)
 		return ;
 	else
 	{
@@ -35,9 +33,7 @@ void	swap_b(t_stack *stack_b)
 	int temp;
 	t_stack *head;
 
-	if (!stack_b)
-		return ;
-	if (!stack_b->next)
+	if (!stack_b || !stack_b->next)
 		return ;
 	else
 	{

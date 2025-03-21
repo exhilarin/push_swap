@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:52:50 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/21 05:04:09 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/21 06:53:17 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_stack	*new_node(int data)
 	return (node);
 }
 
-void add_to_stack(t_stack **stack, int data)
+void add_back_to_stack(t_stack **stack, int data)
 {
 	t_stack *new;
 	t_stack *tmp;
@@ -41,6 +41,45 @@ void add_to_stack(t_stack **stack, int data)
 		while (tmp->next)
 			tmp = tmp->next;
 		tmp->next = new;
+	}
+}
+
+void	add_front_to_stack(t_stack **stack, int data)
+{
+	t_stack *new;
+
+	new = new_node(data);
+	if (!new)
+		return;
+
+	new->next = *stack;
+	*stack = new;
+}
+
+void	del_one_from_stack(t_stack **stack, int data)
+{
+	if (!stack || !*stack)
+		return;
+	
+	t_stack *temp = *stack;
+	
+	if (temp->data == data)
+	{
+		*stack = temp->next;
+		free(temp);
+		return;
+	}
+	
+	while (temp->next)
+	{
+		if (temp->next->data == data)
+		{
+			t_stack *to_delete = temp->next;
+			temp->next = to_delete->next;
+			free(to_delete);
+			return;
+		}
+		temp = temp->next;
 	}
 }
 

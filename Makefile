@@ -1,5 +1,5 @@
 NAME= push_swap
-SRCS= push_swap.c take_argv.c node.c swap.c tools.c
+SRCS= push_swap.c take_argv.c node.c swap.c push.c tools.c
 CC= cc
 CFLAGS= -Wall -Wextra -Werror -g
 PRINTF_PATH = ./ft_printf
@@ -10,6 +10,7 @@ OBJS= $(SRCS:.c=.o)
 
 all: $(NAME) clean
 	@clear
+
 
 $(NAME): $(PRINTF) $(UTILS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(UTILS) $(PRINTF) -o $(NAME)

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 11:42:02 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 00:18:17 by iguney           ###   ########.fr       */
+/*   Created: 2025/03/21 05:58:53 by iguney            #+#    #+#             */
+/*   Updated: 2025/03/21 06:52:26 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "push_swap.h"
 
-# include "../ft_printf/ft_printf.h"
-# include <stdlib.h>
-# include <unistd.h>
+void    push_a(t_stack *stack_a, t_stack *stack_b)
+{
+	if (!stack_b)
+		return ;
+	add_front_to_stack(&stack_a, stack_b->data);
+	del_one_from_stack(&stack_b, stack_b->data);
+}
 
-
-#endif
+void	push_b(t_stack *stack_b, t_stack *stack_a)
+{
+	if (!stack_a)
+		return ;
+	add_front_to_stack(&stack_b, stack_a->data);
+	del_one_from_stack(&stack_a, stack_a->data);
+}

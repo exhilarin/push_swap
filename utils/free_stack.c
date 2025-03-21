@@ -1,21 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 11:42:02 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 00:18:17 by iguney           ###   ########.fr       */
+/*   Created: 2025/03/21 02:19:38 by iguney            #+#    #+#             */
+/*   Updated: 2025/03/21 02:23:45 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#include "push_swap.h"
 
-# include "../ft_printf/ft_printf.h"
-# include <stdlib.h>
-# include <unistd.h>
-
-
-#endif
