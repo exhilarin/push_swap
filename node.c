@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:52:50 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/20 18:47:39 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/21 05:04:09 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,33 +24,35 @@ t_stack	*new_node(int data)
 	return (node);
 }
 
-void	add_to_stack(t_stack **stack, int data)
+void add_to_stack(t_stack **stack, int data)
 {
-	t_stack	*new;
-	t_stack	*temp;
+	t_stack *new;
+	t_stack *tmp;
 
 	new = new_node(data);
 	if (!new)
-		return ;
-	if (!*stack)
+		return;
+
+	if (*stack == NULL)
 		*stack = new;
 	else
 	{
-		temp = *stack;
-		while (temp->next)
-			temp = temp->next;
-		temp->next = new;
+		tmp = *stack;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
 	}
 }
 
+
 void print_stack(t_stack *stack)
 {
-    while (stack)
-    {
-        ft_printf("[%d]", stack->data);
-        if (stack->next)
-            ft_printf(" -> ");
-        stack = stack->next;
-    }
+	while (stack)
+	{
+		ft_printf("[%d]", stack->data);
+		if (stack->next)
+			ft_printf(" -> ");
+		stack = stack->next;
+	}
 	ft_printf("\n");
 }

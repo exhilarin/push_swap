@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   all_in_one.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 05:07:29 by iguney           ###   ########.fr       */
+/*   Created: 2025/03/20 23:48:38 by iguney            #+#    #+#             */
+/*   Updated: 2025/03/21 00:12:51 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: Write actions.
-// TODO: Write algorithms.
+#include "utils.h"
 
-#include "push_swap.h" 
-
-int main(int ac, char *av[])
+char	*all_in_one(char const *s1, char const *s2)
 {
-	t_stack *stack_a = NULL;
-	t_stack *stack_b;
+	size_t	i;
+	size_t	j;
+	char	*str;
 
-	if (ac < 2 || (ac == 2 && av[1][0] == '\0'))
-		return (error());
-
-	stack_b = malloc(sizeof(t_stack));
-	if (!stack_b)
-		return (0);
-	take_argv(&stack_a, av);
-	print_stack(stack_a);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (0);
+	j = 0;
+	i = 0;
+	str = malloc((ft_strlen(s1) + ft_strlen(s2) + 2) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (s1[i] != '\0')
+		str[j++] = s1[i++];
+	str[j++] = ' ';
+	i = 0;
+	while (s2[i] != '\0')
+		str[j++] = s2[i++];
+	str[j] = '\0';
+	return (str);
 }

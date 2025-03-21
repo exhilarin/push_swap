@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 05:07:29 by iguney           ###   ########.fr       */
+/*   Created: 2025/03/21 00:11:41 by iguney            #+#    #+#             */
+/*   Updated: 2025/03/21 00:33:47 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// TODO: Write actions.
-// TODO: Write algorithms.
+#include "utils.h"
 
-#include "push_swap.h" 
-
-int main(int ac, char *av[])
+unsigned int ft_strlen(const char *str)
 {
-	t_stack *stack_a = NULL;
-	t_stack *stack_b;
+	unsigned int i;
 
-	if (ac < 2 || (ac == 2 && av[1][0] == '\0'))
-		return (error());
-
-	stack_b = malloc(sizeof(t_stack));
-	if (!stack_b)
-		return (0);
-	take_argv(&stack_a, av);
-	print_stack(stack_a);
-	free_stack(stack_a);
-	free_stack(stack_b);
-	return (0);
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
