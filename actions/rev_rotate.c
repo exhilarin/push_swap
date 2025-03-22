@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rev_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 03:35:23 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/22 04:08:06 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/22 13:39:42 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void rev_rotate_a(t_stack **stack_a)
 {
-    int i;
 	int tmp;
 	t_stack *head;
 
-	i = 0;
 	head = (*stack_a);
 	while (head->next)
 		head = head->next;
@@ -29,11 +27,9 @@ void rev_rotate_a(t_stack **stack_a)
 
 void rev_rotate_b(t_stack **stack_b)
 {
-    int i;
 	int tmp;
 	t_stack *head;
 
-	i = 0;
 	head = (*stack_b);
 	while (head->next)
 		head = head->next;

@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 23:48:04 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 00:13:00 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/22 20:26:41 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
+#include "stdio.h"
 
 long	ft_atol(const char *str)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   is_digit.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:07:00 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/22 00:11:32 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/22 20:53:43 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	is_digit(char *str)
 
 	i = -1;
 	while (str[++i])
-		if ((str[i] > '9' || str[i] < '0') && (str[i] != '-' || str[i] != '+'))
+		if ((str[i] > '9' || str[i] < '0') && (str[i] != '-' && str[i] != '+'))
 			return (0);
 	return (1);
 }

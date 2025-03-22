@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   take_argv.c                                        :+:      :+:    :+:   */
+/*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 02:13:11 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 06:12:25 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/22 21:07:11 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	check_argv(char **splitted)
 {
 	int i;
 	int j;
-
+	
 	i = -1;
 	while (splitted[++i])
 	{
@@ -27,6 +27,8 @@ int	check_argv(char **splitted)
 			return (error());
 		if (INT_MAX < ft_atol(splitted[i]) || INT_MIN > ft_atol(splitted[i]))
 			return (error());
+		if (ft_strlen(splitted[i]) > 11)
+			return(error());
 		while (splitted[i + j])
 		{
 			if (ft_atol(splitted[i]) == ft_atol(splitted[i + j]))

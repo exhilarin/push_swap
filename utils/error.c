@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 23:49:32 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 02:17:05 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/22 20:16:03 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int error(void)
 {
-	write(1, "Error!", 7);
+	write(1, "Error!\n", 7);
+	exit(31);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/22 06:41:37 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/22 20:36:07 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,9 @@ int main(int ac, char *av[])
 	t_stack *stack_b = NULL;
 
 	if (ac < 2 || (ac == 2 && av[1][0] == '\0'))
-		return (error());
+		return 0;
 
 	take_argv(&stack_a, av);
-	print_stack(stack_a);
-	rotate_a(&stack_a);
-	print_stack(stack_a);
-	rev_rotate_a(&stack_a);
 	print_stack(stack_a);
 	print_stack(stack_b);
 	// free_stack(stack_a);

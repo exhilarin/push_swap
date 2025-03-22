@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 03:11:38 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/22 04:08:10 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/22 13:38:48 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	rotate_a(t_stack **stack_a)
 {
-	int i;
 	int tmp;
 	t_stack *head;
 
-	i = 0;
 	head = (*stack_a)->next;
 	tmp = (*stack_a)->data;
 	del_one_from_stack(stack_a, (*stack_a)->data);
@@ -29,11 +27,9 @@ void	rotate_a(t_stack **stack_a)
 
 void	rotate_b(t_stack **stack_b)
 {
-	int i;
 	int tmp;
 	t_stack *head;
 
-	i = 0;
 	head = (*stack_b)->next;
 	tmp = (*stack_b)->data;
 	del_one_from_stack(stack_b, (*stack_b)->data);
