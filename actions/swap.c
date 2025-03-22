@@ -6,11 +6,11 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:50:29 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/21 06:15:50 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/22 04:08:15 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	swap_a(t_stack *stack_a)
 {

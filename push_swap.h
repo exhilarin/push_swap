@@ -11,26 +11,34 @@
 
 typedef struct s_stack
 {
-	int    			data;
+	int				data;
 	struct s_stack	*next;
 	struct s_stack	*pre;
 } t_stack;
 
-t_stack	*new_node(int data);
-long	ft_atol(const char *str);
 void	take_argv(t_stack **stack_a, char *av[]);
-void	print_stack(t_stack *stack);
+int		check_argv(char **splitted);
+
+t_stack	*new_node(int data);
 void	add_back_to_stack(t_stack **stack, int data);
 void	add_front_to_stack(t_stack **stack, int data);
 void	del_one_from_stack(t_stack **stack, int data);
-void	swap_a(t_stack *stack_a);
-void    push_a(t_stack *stack_a, t_stack *stack_b);
-void    push_b(t_stack *stack_a, t_stack *stack_b);
-void	free_stack(t_stack *stack);
-int		check_argv(char **splitted);
+void	print_stack(t_stack *stack);
+
 int		check_zero(const char *str);
-char	*all_in_one(char const *s1, char const *s2);
-char	**seperate_argv(char *av[]);
+void	free_stack(t_stack *stack);
+
+void	swap_a(t_stack *stack_a);
+void	swap_b(t_stack *stack_b);
+void	swap_swap(t_stack *stack_a, t_stack *stack_b);
+void	push_a(t_stack **stack_a, t_stack **stack_b);
+void	push_b(t_stack **stack_a, t_stack **stack_b);
+void	rotate_a(t_stack **stack_a);
+void	rotate_b(t_stack **stack_b);
+void	rotate_rotate(t_stack **stack_a, t_stack **stack_b);
+void	rev_rotate_a(t_stack **stack_a);
+void	rev_rotate_b(t_stack **stack_b);
+void	rev_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 
 #endif
 

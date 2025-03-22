@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:52:50 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/21 15:29:58 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/22 03:13:54 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,54 +44,48 @@ void add_back_to_stack(t_stack **stack, int data)
 	}
 }
 
-void	add_front_to_stack(t_stack **stack, int data)
+void add_front_to_stack(t_stack **stack, int data)
 {
-	t_stack *new;
+    t_stack *new;
 
-	if (!stack)
-		return;
-
-	new = new_node(data);
-	if (!new)
-		return;
-
-	new->next = *stack;
-	*stack = new;
+    if (!stack)
+        return;
+    new = new_node(data);
+    if (!new)
+        return;
+    if (!*stack)
+    {
+        *stack = new;
+        return;
+    }
+    new->next = *stack;
+    *stack = new;
 }
 
 void del_one_from_stack(t_stack **stack, int data)
 {
-	if (!stack || !*stack) // Stack veya baş düğüm NULL ise işlem yapma
+	if (!stack || !*stack)
 		return;
 
-	t_stack *temp = *stack;
+	t_stack *tmp = *stack;
 	t_stack *prev = NULL;
 
-	// İlk düğüm silinecekse
-	if (temp->data == data)
+	if (tmp->data == data)
 	{
-		*stack = temp->next; // Başı güncelle
-		free(temp);
-		return;
+		*stack = tmp->next;
+		free(tmp);
+		return ;
 	}
-
-	// Diğer düğümleri kontrol et
-	while (temp && temp->data != data)
+	while (tmp && tmp->data != data)
 	{
-		prev = temp;
-		temp = temp->next;
+		prev = tmp;
+		tmp = tmp->next;
 	}
-
-	// Eğer veri bulunamazsa
-	if (!temp)
+	if (!tmp)
 		return;
-
-	// Bağlantıyı güncelle ve düğümü sil
-	prev->next = temp->next;
-	free(temp);
+	prev->next = tmp->next;
+	free(tmp);
 }
-
-
 
 void print_stack(t_stack *stack)
 {
