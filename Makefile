@@ -1,5 +1,5 @@
 NAME= push_swap
-SRCS= push_swap.c stack.c node.c ./actions/swap.c ./actions/push.c ./actions/rotate.c ./actions/rev_rotate.c tools.c
+SRCS= push_swap.c stack.c node.c tools.c ./actions/swap.c ./actions/push.c ./actions/rotate.c ./actions/rev_rotate.c
 CC= cc
 CFLAGS= -Wall -Wextra -Werror -g
 PRINTF_PATH = ./ft_printf
