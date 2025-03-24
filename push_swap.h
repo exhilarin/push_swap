@@ -30,7 +30,7 @@ int		stack_size(t_stack *stack);
 void	free_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
 
-void	algorithm(t_stack *stack_a, t_stack *stack_b);
+void	algorithm(t_stack **stack_a, t_stack **stack_b);
 void	sort_for_three(t_stack *stack_a);
 
 void	swap_a(t_stack *stack_a);
