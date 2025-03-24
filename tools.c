@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:22:48 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/21 06:51:27 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/24 14:53:56 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,28 @@ void free_stack(t_stack *stack)
     free(stack);
 }
 
+int	stack_size(t_stack *stack)
+{
+	int	size;
+	t_stack *tmp;
+	
+	size = 1;
+	tmp = stack;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		size++;
+	}
+	return (size);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->data > stack->next->data)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}

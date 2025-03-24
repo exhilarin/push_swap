@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/20 23:49:32 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/24 06:26:25 by iguney           ###   ########.fr       */
+/*   Created: 2025/03/24 06:48:59 by iguney            #+#    #+#             */
+/*   Updated: 2025/03/24 06:49:13 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-int error(void)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
-	ft_printf("Error!\n");
-	exit(1);
-    return (0);
+	size_t	i;
+
+	i = 0;
+	while (i < n && (s1[i] != '\0' || s2[i] != '\0'))
+	{
+		if (s1[i] != s2[i])
+			return ((unsigned char) s1[i] - (unsigned char) s2[i]);
+		i++;
+	}
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:50:29 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/22 04:08:15 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/24 14:26:14 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,9 @@ void	swap_a(t_stack *stack_a)
 		head->data = head->next->data;
 		head->next->data = temp;
 	}
+	message("sa");
+	if (is_sorted(stack_a) && stack_a->size == 8)
+		return ;
 }
 
 void	swap_b(t_stack *stack_b)
@@ -42,10 +45,12 @@ void	swap_b(t_stack *stack_b)
 		head->data = head->next->data;
 		head->next->data = temp;
 	}
+	message("sb");
 }
 
 void	swap_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	swap_a(stack_a);
 	swap_a(stack_b);
+	message("ss");
 }

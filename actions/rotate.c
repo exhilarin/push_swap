@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 03:11:38 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/22 13:38:48 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/24 14:32:55 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,9 @@ void	rotate_a(t_stack **stack_a)
 	while (head->next)
 		head = head->next;
 	add_back_to_stack(stack_a, tmp);
+	message("ra");
+	if (is_sorted(*stack_a) &&  (*stack_a)->size == 8)
+		return ;
 }
 
 void	rotate_b(t_stack **stack_b)
@@ -36,10 +39,12 @@ void	rotate_b(t_stack **stack_b)
 	while (head->next)
 		head = head->next;
 	add_back_to_stack(stack_b, tmp);
+	message("rb");
 }
 
 void	rotate_rotate(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate_a(stack_a);
 	rotate_b(stack_b);
+	message("rr");
 }
