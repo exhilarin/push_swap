@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/24 17:35:12 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/26 03:52:52 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,25 @@ int main(int ac, char *av[])
 	t_stack *stack_a = NULL;
 	t_stack *stack_b = NULL;
 
-	if (ac < 2 || (ac == 2 && av[1][0] == '\0'))
+	int i;
+	if (ac < 2)
 		return (0);
+	i = 1;
+	while (i < ac)
+	{
+		if (av[i][0] == '\0')
+			return (error());
+		i++;
+	}
 
 	take_argv(&stack_a, av);
-	if (is_sorted(stack_a))
-		return (free_stack(stack_a), 0);
 	print_stack(stack_a);
 	print_stack(stack_b);
+	if (is_sorted(stack_a))
+		return (free_stack(stack_a), 0);
 	algorithm(&stack_a, &stack_b);
 	print_stack(stack_a);
 	print_stack(stack_b);
-
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);

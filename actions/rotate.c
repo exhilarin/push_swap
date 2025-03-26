@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/22 03:11:38 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/24 14:32:55 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/26 00:28:23 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rotate_a(t_stack **stack_a)
 		head = head->next;
 	add_back_to_stack(stack_a, tmp);
 	message("ra");
-	if (is_sorted(*stack_a) &&  (*stack_a)->size == 8)
+	if (is_sorted(*stack_a) && (*stack_a)->size == stack_size(*stack_a))
 		return ;
 }
 

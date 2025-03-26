@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:52:50 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/23 23:23:23 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/26 07:18:47 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,27 +64,26 @@ void add_front_to_stack(t_stack **stack, int data)
 
 void del_one_from_stack(t_stack **stack, int data)
 {
-	if (!stack || !*stack)
-		return;
+    if (!stack || !*stack)
+        return;
 
-	t_stack *tmp = *stack;
-	t_stack *prev = NULL;
+    t_stack *tmp = *stack;
+    t_stack *prev = NULL;
 
-	if (tmp->data == data)
-	{
-		*stack = tmp->next;
-		free(tmp);
-		return ;
-	}
-	while (tmp && tmp->data != data)
-	{
-		prev = tmp;
-		tmp = tmp->next;
-	}
-	if (!tmp)
-		return;
-	prev->next = tmp->next;
-	free(tmp);
+    while (tmp)
+    {
+        if (tmp->data == data)
+        {
+            if (prev)
+                prev->next = tmp->next;
+            else
+                *stack = tmp->next;
+            free(tmp);
+            return;
+        }
+        prev = tmp;
+        tmp = tmp->next;
+    }
 }
 
 void print_stack(t_stack *stack)

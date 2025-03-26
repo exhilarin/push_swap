@@ -3,40 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 02:13:11 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/22 21:07:11 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/26 07:58:34 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_argv(char **splitted)
+void take_argv(t_stack **stack_a, char *av[])
 {
-	int i;
-	int j;
-	
-	i = -1;
-	while (splitted[++i])
+    int i;
+    char **splitted;
+
+    splitted = seperate_argv(av);
+    if (check_argv(splitted))
 	{
-		j = 1;
-		if (!is_digit(splitted[i]))
-			return(error());
-		if (!(!check_zero(splitted[i]) || ft_atol(splitted[i]) == 0))
-			return (error());
-		if (INT_MAX < ft_atol(splitted[i]) || INT_MIN > ft_atol(splitted[i]))
-			return (error());
-		if (ft_strlen(splitted[i]) > 11)
-			return(error());
-		while (splitted[i + j])
-		{
-			if (ft_atol(splitted[i]) == ft_atol(splitted[i + j]))
-				return (error());
-			j++;
-		}
-	}
-	return (1);
+        i = -1;
+        while (splitted[++i])
+            add_back_to_stack(stack_a, ft_atol(splitted[i]));
+    }
+    i = 0;
+    while(splitted[i])
+        free(splitted[i++]);
+    free(splitted);
 }
 
 char	**seperate_argv(char *av[])
@@ -64,20 +55,29 @@ char	**seperate_argv(char *av[])
 	return (splitted);
 }
 
-void take_argv(t_stack **stack_a, char *av[])
+int	check_argv(char **splitted)
 {
-    int i;
-    char **splitted;
-
-    splitted = seperate_argv(av);
-    if (check_argv(splitted))
+	int i;
+	int j;
+	
+	i = -1;
+	while (splitted[++i])
 	{
-        i = -1;
-        while (splitted[++i])
-            add_back_to_stack(stack_a, ft_atol(splitted[i]));
-    }
-    i = 0;
-    while(splitted[i])
-        free(splitted[i++]);
-    free(splitted);
+		j = 1;
+		if (!is_digit(splitted[i]))
+			return(error());
+		if (!(!check_zero(splitted[i]) || ft_atol(splitted[i]) == 0))
+			return (error());
+		if (INT_MAX < ft_atol(splitted[i]) || INT_MIN > ft_atol(splitted[i]))
+			return (error());
+		if (ft_strlen(splitted[i]) > 11)
+			return(error());
+		while (splitted[i + j])
+		{
+			if (ft_atol(splitted[i]) == ft_atol(splitted[i + j]))
+				return (error());
+			j++;
+		}
+	}
+	return (1);
 }
