@@ -17,6 +17,7 @@ typedef struct s_stack
 } t_stack;
 
 void	take_argv(t_stack **stack_a, char *av[]);
+char	**seperate_argv(char *av[]);
 int		check_argv(char **splitted);
 
 t_stack	*new_node(int data);
@@ -32,6 +33,10 @@ int		is_sorted(t_stack *stack);
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b);
 void	sort_for_three(t_stack *stack_a);
+t_stack	*find_best_match(t_stack *stack_a, t_stack *stack_b);
+int	calculate_cost_a(int index_a, int size_a);
+int	calculate_cost_b(int index_b, int size_b);
+int	calculate_total_cost(t_stack *best_match, t_stack *stack_a, t_stack *stack_b);
 
 void	swap_a(t_stack *stack_a);
 void	swap_b(t_stack *stack_b);

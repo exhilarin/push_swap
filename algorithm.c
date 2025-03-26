@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:21:51 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/26 10:04:04 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/26 11:09:06 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,11 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 		push_b(stack_a, stack_b);
 		if ((*stack_a)->size >= 4)
 			push_b(stack_a, stack_b);
-		while ((*stack_a) || (*stack_b))
-		{
-			find_best_match(&stack_a, &stack_b);
-			(*stack_a) = (*stack_a)->next;
-		}
-		select_best_move(stack_a, stack_b);
+		// while ((*stack_a) || (*stack_b))
+		// {
+		// 	find_best_match(&stack_a, &stack_b);
+		// 	(*stack_a) = (*stack_a)->next;
+		// }
 	}
 }
 
@@ -47,20 +46,6 @@ void	sort_for_three(t_stack *stack_a)
 			tmp = tmp->next;
 		if (is_sorted(stack_a))
 			return ;
-	}
-}
-
-void	select_best_move(t_stack **stack_a, t_stack **stack_b)
-{
-	t_stack	*head_a;
-	t_stack	*head_b;
-
-	head_a = *stack_a;
-	head_b = *stack_b;
-	while (head_a)
-	{
-		find_best_match(head_a, head_b);
-		head_a = head_a->next;
 	}
 }
 
