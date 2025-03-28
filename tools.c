@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:22:48 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/26 09:50:02 by iguney           ###   ########.fr       */
+/*   Updated: 2025/03/28 16:07:20 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	stack_size(t_stack *stack)
 	
 	size = 1;
 	tmp = stack;
-	while (tmp->next)
+	while (tmp)
 	{
 		tmp = tmp->next;
 		size++;

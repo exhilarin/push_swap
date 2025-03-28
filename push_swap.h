@@ -12,7 +12,10 @@
 typedef struct s_stack
 {
 	int				data;
+	int				cost;
+	int				total_cost;
 	int				size;
+	int				index;
 	struct s_stack	*next;
 } t_stack;
 
@@ -34,9 +37,14 @@ int		is_sorted(t_stack *stack);
 void	algorithm(t_stack **stack_a, t_stack **stack_b);
 void	sort_for_three(t_stack *stack_a);
 t_stack	*find_best_match(t_stack *stack_a, t_stack *stack_b);
-int	calculate_cost_a(int index_a, int size_a);
-int	calculate_cost_b(int index_b, int size_b);
-int	calculate_total_cost(t_stack *best_match, t_stack *stack_a, t_stack *stack_b);
+t_stack *find_target_in_a(t_stack *stack_a, int data);
+t_stack	*find_target_in_b(t_stack *stack_b, int value);
+int	calculate_total_cost(t_stack *node_a, t_stack *stack_a,
+	t_stack *node_b, t_stack *stack_b);
+int	calculate_cost(t_stack *node, t_stack *stack);
+void	move_to_top(t_stack **stack_a, t_stack **stack_b, t_stack *best_match, t_stack *target_b);
+int	get_index(t_stack *node, t_stack *stack);
+
 
 void	swap_a(t_stack *stack_a);
 void	swap_b(t_stack *stack_b);
