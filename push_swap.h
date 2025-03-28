@@ -16,6 +16,7 @@ typedef struct s_stack
 	int				total_cost;
 	int				size;
 	int				index;
+	struct s_stack	*target;
 	struct s_stack	*next;
 } t_stack;
 
