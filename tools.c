@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:22:48 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/28 16:07:20 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/29 01:52:22 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	stack_size(t_stack *stack)
 	int	size;
 	t_stack *tmp;
 	
-	size = 1;
+	size = 0;
 	tmp = stack;
 	while (tmp)
 	{

@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:21:51 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/28 17:01:05 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/29 16:34:12 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,28 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 
 	(*stack_a)->size = stack_size(*stack_a);
 	if ((*stack_a)->size <= 3)
-		sort_for_three(*stack_a);
+		sort_for_three(stack_a);
 	else
 	{
 		push_b(stack_a, stack_b);
-		if ((*stack_a)->size >= 4)
+		if ((*stack_a)->size > 3)
 			push_b(stack_a, stack_b);
-		while (stack_size(*stack_a) > 4)
+		while (stack_size(*stack_a) > 3)
 		{
 			best_match = find_best_match(*stack_a, *stack_b);
 			(*stack_b)->target = find_target_in_b(*stack_b, best_match->data);
 			move_to_top(stack_a, stack_b, best_match, (*stack_b)->target);
 			push_b(stack_a, stack_b);
 		}
-		while (stack_size(*stack_b) > 1)
+		while (stack_size(*stack_b) != 0)
 		{
-			(*stack_a)->target =  find_target_in_a(*stack_a, (*stack_b)->data);
+			(*stack_a)->target = find_target_in_a(*stack_a, (*stack_b)->data);
 			move_to_top(stack_a, stack_b, (*stack_a)->target, *stack_b);
 			push_a(stack_a, stack_b);
 		}
 	}
 }
+
 
 t_stack	*find_best_match(t_stack *stack_a, t_stack *stack_b)
 {

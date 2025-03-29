@@ -36,7 +36,7 @@ void	free_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b);
-void	sort_for_three(t_stack *stack_a);
+void	sort_for_three(t_stack **stack_a);
 t_stack	*find_best_match(t_stack *stack_a, t_stack *stack_b);
 t_stack *find_target_in_a(t_stack *stack_a, int data);
 t_stack	*find_target_in_b(t_stack *stack_b, int value);
@@ -47,9 +47,9 @@ void	move_to_top(t_stack **stack_a, t_stack **stack_b, t_stack *best_match, t_st
 int	get_index(t_stack *node, t_stack *stack);
 
 
-void	swap_a(t_stack *stack_a);
-void	swap_b(t_stack *stack_b);
-void	swap_swap(t_stack *stack_a, t_stack *stack_b);
+void	swap_a(t_stack **stack_a);
+void	swap_b(t_stack **stack_b);
+void	swap_swap(t_stack **stack_a, t_stack **stack_b);
 void	push_a(t_stack **stack_a, t_stack **stack_b);
 void	push_b(t_stack **stack_a, t_stack **stack_b);
 void	rotate_a(t_stack **stack_a);

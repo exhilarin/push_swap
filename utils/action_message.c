@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 06:38:46 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/27 23:12:14 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/29 16:07:26 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ void	message(char *string)
 {
 	if (!ft_strncmp(string, "rrr", 3))
 		ft_printf("rrr");
+	else if (!ft_strncmp(string, "rra", 3))
+		ft_printf("rra");
+	else if (!ft_strncmp(string, "rrb", 3))
+		ft_printf("rrb");
 	else if (!ft_strncmp(string, "rr", 2))
 		ft_printf("rr");
 	else if (!ft_strncmp(string, "ss", 2))
@@ -32,10 +36,6 @@ void	message(char *string)
 		ft_printf("ra");
 	else if (!ft_strncmp(string, "rb", 2))
 		ft_printf("rb");
-	else if (!ft_strncmp(string, "rra", 3))
-		ft_printf("rra");
-	else if (!ft_strncmp(string, "rrb", 3))
-		ft_printf("rrb");
     ft_printf("\n");
 }
 

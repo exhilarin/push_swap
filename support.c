@@ -6,26 +6,26 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:58:00 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/28 17:20:23 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/29 16:33:46 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_for_three(t_stack *stack_a)
+void	sort_for_three(t_stack **stack_a)
 {
 	t_stack	*tmp;
-	tmp = stack_a;
-	while (stack_a->next)
+	tmp = *stack_a;
+	while ((*stack_a)->next)
 	{
 		if (tmp->data > tmp->next->data)
 		{
-			swap_a(tmp);
-			tmp = stack_a;
+			swap_a(&tmp);
+			tmp = (*stack_a);
 		}
 		else
 			tmp = tmp->next;
-		if (is_sorted(stack_a))
+		if (is_sorted(*stack_a))
 			return ;
 	}
 }
