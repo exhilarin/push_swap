@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:21:51 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/29 20:26:00 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/30 01:35:39 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 void	throw_a(t_stack **stack_a, t_stack **stack_b)
 {
 	(*stack_a)->target = find_target_in_a(*stack_a, (*stack_b)->data);
-	ft_printf("%d <----target \n", (*stack_a)->target->data);
-	move_to_top(stack_a, (*stack_a)->target);
+	move_to_top(stack_a, (*stack_a)->target, 'a');
 	push_a(stack_a, stack_b);
 }
 
@@ -26,8 +25,8 @@ void	throw_b(t_stack **stack_a, t_stack **stack_b)
 
 	best_match = find_best_match(*stack_a, *stack_b);
 	(*stack_b)->target = find_target_in_b(*stack_b, best_match->data);
-	move_to_top(stack_a, best_match);
-	move_to_top(stack_b, (*stack_b)->target);
+	move_to_top(stack_a, best_match, 'a');
+	move_to_top(stack_b, (*stack_b)->target, 'b');
 	push_b(stack_a, stack_b);
 }
 

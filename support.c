@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:58:00 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/29 20:28:57 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/30 01:34:44 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,19 +42,19 @@ void	sort_for_three(t_stack **stack_a)
 		return ;
 	else if (a < c && c < b)
 	{
-		rev_rotate_a(stack_a);
-		swap_a(stack_a);
+		rev_rotate_a(stack_a, 0);
+		swap_a(stack_a, 0);
 	}
 	else if (b < a && a < c)
-		swap_a(stack_a);
+		swap_a(stack_a, 0);
 	else if (b < c && c < a)
-		rotate_a(stack_a);
+		rotate_a(stack_a, 0);
 	else if (c < a && a < b)
-		rev_rotate_a(stack_a);
+		rev_rotate_a(stack_a, 0);
 	else if (c < b && b < a)
 	{
-		swap_a(stack_a);
-		rev_rotate_a(stack_a);
+		swap_a(stack_a, 0);
+		rev_rotate_a(stack_a, 0);
 	}
 }
 
@@ -102,28 +102,31 @@ int	calculate_total_cost(t_stack *node_a, t_stack *stack_a,
 	return (node_a->total_cost);
 }
 
-void	move_to_top(t_stack **stack, t_stack *node_to_move)
+void	move_to_top(t_stack **stack, t_stack *node_to_move, char flag)
 {
 	int	index;
-	int	mid;
-	int size;
+	int	size;
 
 	size = stack_size(*stack);
 	index = get_index(node_to_move, *stack);
-	mid = size / 2;
-	if (node_to_move == NULL)
+	if (node_to_move == NULL || index == 0)
 		return ;
-	if (index == 0)
-		return ;
-
-	if (index <= mid)
+	if (flag == 'a')
 	{
-		while (index-- > 0)
-			rotate_a(stack);
+		if (index <= size / 2)
+			while (index-- > 0)
+				rotate_a(stack, 0);
+		else
+			while (index++ < size)
+				rev_rotate_a(stack, 0);
 	}
-	else
+	else if (flag == 'b')
 	{
-		while (index++ < size)
-			rev_rotate_a(stack);
+		if (index <= size / 2)
+			while (index-- > 0)
+				rotate_b(stack, 0);
+		else
+			while (index++ < size)
+				rev_rotate_b(stack, 0);
 	}
 }

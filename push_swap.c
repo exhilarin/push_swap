@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/29 18:44:50 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/30 01:52:04 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,9 @@ int main(int ac, char *av[])
 	}
 
 	take_argv(&stack_a, av);
-	print_stack(stack_a);
-	print_stack(stack_b);
 	if (is_sorted(stack_a))
 		return (free_stack(stack_a), 0);
 	algorithm(&stack_a, &stack_b);
-	print_stack(stack_a);
-	print_stack(stack_b);
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
@@ -55,15 +51,11 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 			push_b(stack_a, stack_b);
 		while (stack_size(*stack_a) > 3)
 			throw_b(stack_a, stack_b);
+		sort_for_three(stack_a);
 		while (stack_size(*stack_b) > 0)
-		{
-			print_stack(*stack_a);
-			print_stack(*stack_b);
-			ft_printf("-----------------\n");
 			throw_a(stack_a, stack_b);
-			print_stack(*stack_a);
-			print_stack(*stack_b);
-			ft_printf("-----------------\n");
-		}
+		while (is_sorted(*stack_a) == 0)
+			rev_rotate_a(stack_a, 0);
 	}
+	
 }

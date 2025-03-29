@@ -6,47 +6,49 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 17:50:29 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/29 01:51:07 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/30 00:28:17 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void swap_a(t_stack **stack_a) 
+void swap_a(t_stack **stack_a, int flag)
 {
     int temp;
     t_stack *head;
 
     if (!stack_a || !(*stack_a) || !(*stack_a)->next)
         return;
-
+	
     head = (*stack_a);
     temp = head->data;
     head->data = head->next->data;
     head->next->data = temp;
 
-    message("sa");
+    if (!flag)
+        message("sa");
 }
 
-void	swap_b(t_stack **stack_b)
+void swap_b(t_stack **stack_b, int flag)
 {
-	int temp;
-	t_stack *head;
+    int temp;
+    t_stack *head;
 
-	if (!stack_b || !(*stack_b)->next)
-		return ;
+    if (!stack_b || !(*stack_b) || !(*stack_b)->next)
+        return;
 
-	head = (*stack_b);
-	temp = head->data;
-	head->data = head->next->data;
-	head->next->data = temp;
+    head = (*stack_b);
+    temp = head->data;
+    head->data = head->next->data;
+    head->next->data = temp;
 
-	message("sb");
+    if (!flag)
+        message("sb");
 }
 
-void	swap_swap(t_stack **stack_a, t_stack **stack_b)
+void swap_swap(t_stack **stack_a, t_stack **stack_b)
 {
-	swap_a(stack_a);
-	swap_b(stack_b);
-	message("ss");
+    swap_a(stack_a, 1);
+    swap_b(stack_b, 1);
+    message("ss");
 }

@@ -34,6 +34,7 @@ int		check_zero(const char *str);
 int		stack_size(t_stack *stack);
 void	free_stack(t_stack *stack);
 int		is_sorted(t_stack *stack);
+t_stack	*get_last_node(t_stack *stack);
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b);
 void	throw_a(t_stack **stack_a, t_stack **stack_b);
@@ -45,21 +46,21 @@ t_stack	*find_target_in_b(t_stack *stack_b, int value);
 int	calculate_total_cost(t_stack *node_a, t_stack *stack_a,
 	t_stack *node_b, t_stack *stack_b);
 int	calculate_cost(t_stack *node, t_stack *stack);
-void	move_to_top(t_stack **stack, t_stack *node_to_move);
+void	move_to_top(t_stack **stack, t_stack *node_to_move, char flag);
 int	get_index(t_stack *node, t_stack *stack);
 
 
 
-void	swap_a(t_stack **stack_a);
-void	swap_b(t_stack **stack_b);
+void	swap_a(t_stack **stack_a, int flag);
+void	swap_b(t_stack **stack_b, int flag);
 void	swap_swap(t_stack **stack_a, t_stack **stack_b);
 void	push_a(t_stack **stack_a, t_stack **stack_b);
 void	push_b(t_stack **stack_a, t_stack **stack_b);
-void	rotate_a(t_stack **stack_a);
-void	rotate_b(t_stack **stack_b);
+void	rotate_a(t_stack **stack_a, int flag);
+void	rotate_b(t_stack **stack_b, int flag);
 void	rotate_rotate(t_stack **stack_a, t_stack **stack_b);
-void	rev_rotate_a(t_stack **stack_a);
-void	rev_rotate_b(t_stack **stack_b);
+void	rev_rotate_a(t_stack **stack_a, int flag);
+void	rev_rotate_b(t_stack **stack_b, int flag);
 void	rev_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 
 #endif
