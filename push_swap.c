@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/29 01:58:56 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/29 18:44:50 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,29 @@ int main(int ac, char *av[])
 	free_stack(stack_a);
 	free_stack(stack_b);
 	return (0);
+}
+
+void	algorithm(t_stack **stack_a, t_stack **stack_b)
+{
+	(*stack_a)->size = stack_size(*stack_a);
+	if ((*stack_a)->size <= 3)
+		sort_for_three(stack_a);
+	else
+	{
+		push_b(stack_a, stack_b);
+		if ((*stack_a)->size > 3)
+			push_b(stack_a, stack_b);
+		while (stack_size(*stack_a) > 3)
+			throw_b(stack_a, stack_b);
+		while (stack_size(*stack_b) > 0)
+		{
+			print_stack(*stack_a);
+			print_stack(*stack_b);
+			ft_printf("-----------------\n");
+			throw_a(stack_a, stack_b);
+			print_stack(*stack_a);
+			print_stack(*stack_b);
+			ft_printf("-----------------\n");
+		}
+	}
 }

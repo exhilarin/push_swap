@@ -6,27 +6,55 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:58:00 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/29 16:33:46 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/29 20:28:57 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	get_index(t_stack *node, t_stack *stack)
+{
+	int	index;
+	t_stack	*current;
+
+	index = 0;
+	current = stack;
+	while (current)
+	{
+		if (current == node)
+			return (index);
+		current = current->next;
+		index++;
+	}
+	return (-1);
+}
+
 void	sort_for_three(t_stack **stack_a)
 {
-	t_stack	*tmp;
-	tmp = *stack_a;
-	while ((*stack_a)->next)
+	int a;
+	int b;
+	int c;
+
+	a = (*stack_a)->data;
+	b = (*stack_a)->next->data;
+	c = (*stack_a)->next->next->data;
+	if (a < b && b < c)
+		return ;
+	else if (a < c && c < b)
 	{
-		if (tmp->data > tmp->next->data)
-		{
-			swap_a(&tmp);
-			tmp = (*stack_a);
-		}
-		else
-			tmp = tmp->next;
-		if (is_sorted(*stack_a))
-			return ;
+		rev_rotate_a(stack_a);
+		swap_a(stack_a);
+	}
+	else if (b < a && a < c)
+		swap_a(stack_a);
+	else if (b < c && c < a)
+		rotate_a(stack_a);
+	else if (c < a && a < b)
+		rev_rotate_a(stack_a);
+	else if (c < b && b < a)
+	{
+		swap_a(stack_a);
+		rev_rotate_a(stack_a);
 	}
 }
 
@@ -74,22 +102,28 @@ int	calculate_total_cost(t_stack *node_a, t_stack *stack_a,
 	return (node_a->total_cost);
 }
 
-int	get_index(t_stack *node, t_stack *stack)
+void	move_to_top(t_stack **stack, t_stack *node_to_move)
 {
-	int		index;
-	t_stack	*current;
+	int	index;
+	int	mid;
+	int size;
 
-	if (!node || !stack)
-		return (-1);
+	size = stack_size(*stack);
+	index = get_index(node_to_move, *stack);
+	mid = size / 2;
+	if (node_to_move == NULL)
+		return ;
+	if (index == 0)
+		return ;
 
-	index = 0;
-	current = stack;
-	while (current)
+	if (index <= mid)
 	{
-		if (current == node)
-			return (index);
-		index++;
-		current = current->next;
+		while (index-- > 0)
+			rotate_a(stack);
 	}
-	return (-1);
+	else
+	{
+		while (index++ < size)
+			rev_rotate_a(stack);
+	}
 }
