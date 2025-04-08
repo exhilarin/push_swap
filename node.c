@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:52:50 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/29 01:50:23 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/03/30 02:37:44 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,3 +93,17 @@ void print_stack(t_stack *stack)
     ft_printf("\n");
 }
 
+void compare_first_last(t_stack **stack_a)
+{
+    int size;
+    int mid;
+    int index;
+
+    size = stack_size(*stack_a);
+    mid = size / 2;
+    index = get_index(*stack_a, (*stack_a));
+    if (index < mid)
+        rotate_a(stack_a, 0);
+    else
+        rev_rotate_a(stack_a, 0);
+}

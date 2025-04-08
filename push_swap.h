@@ -48,6 +48,7 @@ int	calculate_total_cost(t_stack *node_a, t_stack *stack_a,
 int	calculate_cost(t_stack *node, t_stack *stack);
 void	move_to_top(t_stack **stack, t_stack *node_to_move, char flag);
 int	get_index(t_stack *node, t_stack *stack);
+void compare_first_last(t_stack **stack_a);
 
 
 
