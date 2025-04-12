@@ -6,11 +6,9 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 00:29:10 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 01:14:00 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// TODO: Write algorithms.
 
 #include "push_swap.h"
 

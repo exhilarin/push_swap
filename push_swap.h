@@ -27,7 +27,7 @@ typedef struct s_stack
 int		first_control(int ac, char *av[]);
 void 	take_argv(t_stack **stack_a, char *av[]);
 char	**seperate_argv(char *av[]);
-int		check_argv(char **splitted);
+int	check_argv(char **splitted, t_stack **stack_a);
 
 t_stack	*new_node(int data);
 void	add_back_to_stack(t_stack **stack, int data);
@@ -40,6 +40,7 @@ void	free_stack(t_stack *stack);
 int		is_sorted_a(t_stack *stack);
 int		is_sorted_b(t_stack *stack);
 t_stack	*get_last_node(t_stack *stack);
+void	free_str(char **str);
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b);
 void	throw_a(t_stack **stack_a, t_stack **stack_b);
