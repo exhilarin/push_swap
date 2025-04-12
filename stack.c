@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 02:13:11 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 00:41:40 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 01:11:53 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int first_control(int ac, char *av[])
 	if (ac < 2)
 		return (error(NULL));
 	i = 1;
-	while (i < ac)
+    while (i < ac) 
 	{
-		if (is_space(av[i][0]))
+        if (is_all_spaces(av[i])) 
 			return (error());
-		i++;
-	}
+        i++;
+    }
 	i = 1;
 	while (i < ac)
 	{
