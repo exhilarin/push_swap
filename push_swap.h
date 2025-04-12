@@ -13,7 +13,11 @@ typedef struct s_stack
 {
 	int				data;
 	int				cost;
+	int				cost_a;
+	int				cost_b;
 	int				total_cost;
+	int				flag_a;
+	int				flag_b;
 	int				size;
 	int				index;
 	struct s_stack	*target;
@@ -48,6 +52,7 @@ int	calculate_total_cost(t_stack *node_a, t_stack *stack_a,
 	t_stack *node_b, t_stack *stack_b);
 int	calculate_cost(t_stack *node, t_stack *stack);
 void	move_to_top(t_stack **stack, t_stack *node_to_move, char flag);
+void	move_to_top_a_and_b(t_stack **a, t_stack *node_a, t_stack **b, t_stack *node_b);
 int	get_index(t_stack *node, t_stack *stack);
 void compare_first_last(t_stack **stack_a);
 t_stack *find_max_value(t_stack *stack);

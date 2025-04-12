@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:21:51 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/12 17:35:22 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 19:44:11 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,7 @@ void	throw_b(t_stack **stack_a, t_stack **stack_b)
 
 	best_match = find_best_match(*stack_a, *stack_b);
 	(*stack_b)->target = find_target_in_b(*stack_b, best_match->data);
-	move_to_top(stack_a, best_match, 'a');
-	move_to_top(stack_b, (*stack_b)->target, 'b');
+	move_to_top_a_and_b(stack_a, best_match, stack_b, (*stack_b)->target);
 	push_b(stack_a, stack_b);
 }
 

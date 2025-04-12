@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/12 17:48:01 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 19:45:22 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,41 +45,16 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 		sort_for_three(stack_a);
 	else
 	{
-		print_stack(*stack_a);
-		print_stack(*stack_b);
-		printf("----------------------\n");
 		push_b(stack_a, stack_b);
 		if (stack_size(*stack_a) > 3)
 			push_b(stack_a, stack_b);
-		print_stack(*stack_a);
-		print_stack(*stack_b);
-		printf("----------------------\n");
 		while (stack_size(*stack_a) > 3)
-		{
 			throw_b(stack_a, stack_b);
-			print_stack(*stack_a);
-			print_stack(*stack_b);
-			printf("----------------------\n");
-		}
 		move_to_top(stack_b, find_max_value(*stack_b), 'b');
-		print_stack(*stack_a);
-		print_stack(*stack_b);
-		printf("----------------------\n");
 		sort_for_three(stack_a);
-		print_stack(*stack_a);
-		print_stack(*stack_b);
-		printf("----------------------\n");
 		while (stack_size(*stack_b) != 0)
-		{
 			throw_a(stack_a, stack_b);
-			print_stack(*stack_a);
-			print_stack(*stack_b);
-			printf("----------------------\n");
-		}
 		while (!is_sorted_a(*stack_a))
 			rev_rotate_a(stack_a, 0);
-		print_stack(*stack_a);
-		print_stack(*stack_b);
-		printf("----------------------\n");
 	}
 }

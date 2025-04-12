@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:58:00 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/04/12 16:12:25 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 19:42:42 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,32 @@ void	move_to_top(t_stack **stack, t_stack *node_to_move, char flag)
 			while (index++ < size)
 				rev_rotate_b(stack, 0);
 	}
+}
+
+void	move_to_top_a_and_b(t_stack **a, t_stack *node_a, t_stack **b, t_stack *node_b)
+{
+	int	i_a = get_index(node_a, *a);
+	int	i_b = get_index(node_b, *b);
+	int	size_a = stack_size(*a);
+	int	size_b = stack_size(*b);
+
+	// İki node da üst yarıda ise: rr kullan
+	while (i_a > 0 && i_b > 0 && i_a <= size_a / 2 && i_b <= size_b / 2)
+	{
+		rotate_rotate(a, b);
+		i_a--;
+		i_b--;
+	}
+
+	// İki node da alt yarıda ise: rrr kullan
+	while (i_a < size_a && i_b < size_b && i_a > size_a / 2 && i_b > size_b / 2)
+	{
+		rev_rotate_rotate(a, b);
+		i_a++;
+		i_b++;
+	}
+
+	// Kalan döndürmeler
+	move_to_top(a, node_a, 'a');
+	move_to_top(b, node_b, 'b');
 }
