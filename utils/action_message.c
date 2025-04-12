@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   action_message.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 06:38:46 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/30 00:35:24 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/13 02:42:14 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,3 @@ void	message(char *string)
 	else if (!ft_strncmp(string, "rb", 2))
 		ft_printf("rb\n");
 }
-

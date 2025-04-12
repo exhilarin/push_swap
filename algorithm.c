@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:21:51 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/12 19:44:11 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/13 02:23:32 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_stack	*find_best_match(t_stack *stack_a, t_stack *stack_b)
 	return (best_match);
 }
 
-t_stack *find_target_in_a(t_stack *stack_a, int data)
+t_stack	*find_target_in_a(t_stack *stack_a, int data)
 {
 	t_stack	*target;
 	t_stack	*current;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 23:48:04 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/22 20:26:41 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/13 02:39:15 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 long	ft_atol(const char *str)
 {
-	int	    i;
-	int     sign;
+	int		i;
+	int		sign;
 	long	result;
 
 	i = 0;

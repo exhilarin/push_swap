@@ -6,21 +6,23 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 01:14:00 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 02:27:58 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
-	t_stack *stack_a = NULL;
-	t_stack *stack_b = NULL;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
+	stack_a = NULL;
+	stack_b = NULL;
 	first_control(ac, av);
-	take_argv(&stack_a, av);
-	algorithm(&stack_a, &stack_b);
-	free_stack(stack_a);
+	take_argv (&stack_a, av);
+	algorithm (&stack_a, &stack_b);
+	free_stack (stack_a);
 	return (0);
 }
 
@@ -29,7 +31,7 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 	if (is_sorted_a(*stack_a))
 		return (free_stack(*stack_a), exit(0));
 	if (stack_size(*stack_a) == 2)
-		return(swap_a(stack_a, 0), exit(0));
+		return (swap_a(stack_a, 0), exit(0));
 	if (stack_size(*stack_a) == 3)
 		sort_for_three(stack_a);
 	else
