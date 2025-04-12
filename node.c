@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   node.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 18:52:50 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/04/12 17:40:51 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 22:57:57 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ void add_back_to_stack(t_stack **stack, int data)
         tmp->next = new;
     }
 }
-
 
 void add_front_to_stack(t_stack **stack, int data)
 {
@@ -81,49 +80,15 @@ void del_one_from_stack(t_stack **stack, int data)
     }
 }
 
-void print_stack(t_stack *stack) 
+void free_stack(t_stack *stack)
 {
-    while (stack) 
-    {
-        ft_printf("%d", stack->data);
-        if (stack->next)
-            ft_printf(" -> ");
-        stack = stack->next;
-    }
-    ft_printf("\n");
-}
+    t_stack *tmp;
 
-t_stack *find_max_value(t_stack *stack)
-{
-    t_stack *max_node;
-    max_node = stack;
-    while (stack) 
+    while (stack)
     {
-        if (stack->data > max_node->data)
-            max_node = stack;
+        tmp = stack;
         stack = stack->next;
+        free(tmp);
     }
-    return (max_node);
-}
-
-t_stack *find_min_value(t_stack *stack)
-{
-    t_stack *max_node;
-    max_node = stack;
-    while (stack) 
-    {
-        if (stack->data < max_node->data)
-            max_node = stack;
-        stack = stack->next;
-    }
-    return (max_node);
-}
-
-void compare_first_last(t_stack **stack_a)
-{
-    printf("------\n");
-    if ((*stack_a)->data < get_last_node(*stack_a)->data)
-        rotate_a(stack_a, 0);
-    else
-        rev_rotate_a(stack_a, 0);
+    free(stack);
 }

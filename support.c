@@ -3,60 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   support.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:58:00 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/04/12 19:42:42 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 23:00:11 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	get_index(t_stack *node, t_stack *stack)
-{
-	int	index;
-	t_stack	*current;
-
-	index = 0;
-	current = stack;
-	while (current)
-	{
-		if (current == node)
-			return (index);
-		current = current->next;
-		index++;
-	}
-	return (-1);
-}
-
-void	sort_for_three(t_stack **stack_a)
-{
-	int a;
-	int b;
-	int c;
-
-	a = (*stack_a)->data;
-	b = (*stack_a)->next->data;
-	c = (*stack_a)->next->next->data;
-	if (a < b && b < c)
-		return ;
-	else if (a < c && c < b)
-	{
-		rev_rotate_a(stack_a, 0);
-		swap_a(stack_a, 0);
-	}
-	else if (b < a && a < c)
-		swap_a(stack_a, 0);
-	else if (b < c && c < a)
-		rotate_a(stack_a, 0);
-	else if (c < a && a < b)
-		rev_rotate_a(stack_a, 0);
-	else if (c < b && b < a)
-	{
-		swap_a(stack_a, 0);
-		rev_rotate_a(stack_a, 0);
-	}
-}
 
 int	calculate_cost(t_stack *node, t_stack *stack)
 {
@@ -138,23 +92,47 @@ void	move_to_top_a_and_b(t_stack **a, t_stack *node_a, t_stack **b, t_stack *nod
 	int	size_a = stack_size(*a);
 	int	size_b = stack_size(*b);
 
-	// İki node da üst yarıda ise: rr kullan
 	while (i_a > 0 && i_b > 0 && i_a <= size_a / 2 && i_b <= size_b / 2)
 	{
 		rotate_rotate(a, b);
 		i_a--;
 		i_b--;
 	}
-
-	// İki node da alt yarıda ise: rrr kullan
 	while (i_a < size_a && i_b < size_b && i_a > size_a / 2 && i_b > size_b / 2)
 	{
 		rev_rotate_rotate(a, b);
 		i_a++;
 		i_b++;
 	}
-
-	// Kalan döndürmeler
 	move_to_top(a, node_a, 'a');
 	move_to_top(b, node_b, 'b');
+}
+
+void	sort_for_three(t_stack **stack_a)
+{
+	int a;
+	int b;
+	int c;
+
+	a = (*stack_a)->data;
+	b = (*stack_a)->next->data;
+	c = (*stack_a)->next->next->data;
+	if (a < b && b < c)
+		return ;
+	else if (a < c && c < b)
+	{
+		rev_rotate_a(stack_a, 0);
+		swap_a(stack_a, 0);
+	}
+	else if (b < a && a < c)
+		swap_a(stack_a, 0);
+	else if (b < c && c < a)
+		rotate_a(stack_a, 0);
+	else if (c < a && a < b)
+		rev_rotate_a(stack_a, 0);
+	else if (c < b && b < a)
+	{
+		swap_a(stack_a, 0);
+		rev_rotate_a(stack_a, 0);
+	}
 }

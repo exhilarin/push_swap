@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
+/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:22:48 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/12 12:07:31 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 23:00:12 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,6 @@ int	check_zero(const char *str)
 	return (0);
 }
 
-void free_stack(t_stack *stack)
-{
-    t_stack *tmp;
-
-    while (stack)
-    {
-        tmp = stack;
-        stack = stack->next;
-        free(tmp);
-    }
-    free(stack);
-}
-
 int	stack_size(t_stack *stack)
 {
 	int	size;
@@ -62,26 +49,22 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
-int	is_sorted_b(t_stack *stack)
-{
-	while (stack->next)
-	{
-		if (stack->data < stack->next->data)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
 
-int	is_sorted_a(t_stack *stack)
+int	get_index(t_stack *node, t_stack *stack)
 {
-	while (stack->next)
+	int	index;
+	t_stack	*current;
+
+	index = 0;
+	current = stack;
+	while (current)
 	{
-		if (stack->data > stack->next->data)
-			return (0);
-		stack = stack->next;
+		if (current == node)
+			return (index);
+		current = current->next;
+		index++;
 	}
-	return (1);
+	return (-1);
 }
 
 t_stack	*get_last_node(t_stack *stack)
@@ -94,4 +77,9 @@ t_stack	*get_last_node(t_stack *stack)
 	return (last);
 }
 
-
+int error(void)
+{
+	ft_printf("Error!\n");
+	exit(0);
+	return (0);
+}

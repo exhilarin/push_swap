@@ -57,6 +57,7 @@ int	get_index(t_stack *node, t_stack *stack);
 void compare_first_last(t_stack **stack_a);
 t_stack *find_max_value(t_stack *stack);
 t_stack *find_min_value(t_stack *stack);
+int error(void);
 
 void	swap_a(t_stack **stack_a, int flag);
 void	swap_b(t_stack **stack_b, int flag);
