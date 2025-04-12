@@ -33,7 +33,8 @@ void	print_stack(t_stack *stack);
 int		check_zero(const char *str);
 int		stack_size(t_stack *stack);
 void	free_stack(t_stack *stack);
-int		is_sorted(t_stack *stack);
+int		is_sorted_a(t_stack *stack);
+int		is_sorted_b(t_stack *stack);
 t_stack	*get_last_node(t_stack *stack);
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b);
@@ -49,7 +50,7 @@ int	calculate_cost(t_stack *node, t_stack *stack);
 void	move_to_top(t_stack **stack, t_stack *node_to_move, char flag);
 int	get_index(t_stack *node, t_stack *stack);
 void compare_first_last(t_stack **stack_a);
-
+t_stack *find_max_value(t_stack *stack);
 
 
 void	swap_a(t_stack **stack_a, int flag);

@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/18 13:37:42 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/05 12:35:10 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 16:13:41 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int ac, char *av[])
 	}
 
 	take_argv(&stack_a, av);
-	if (is_sorted(stack_a))
+	if (is_sorted_a(stack_a))
 		return (free_stack(stack_a), 0);
 	algorithm(&stack_a, &stack_b);
 	free_stack(stack_a);
@@ -47,14 +47,15 @@ void	algorithm(t_stack **stack_a, t_stack **stack_b)
 	else
 	{
 		push_b(stack_a, stack_b);
-		if ((*stack_a)->size > 3)
+		if (stack_size(*stack_a) > 3)
 			push_b(stack_a, stack_b);
 		while (stack_size(*stack_a) > 3)
 			throw_b(stack_a, stack_b);
+		move_to_top(stack_b, find_max_value(*stack_b), 'b');
 		sort_for_three(stack_a);
-		while (stack_size(*stack_b) > 0)
+		while (stack_size(*stack_b) != 0)
 			throw_a(stack_a, stack_b);
-		while (get_last_node(*stack_a)->data < (*stack_a)->data)
-			compare_first_last(stack_a);
+		while ((*stack_a)->data > get_last_node(*stack_a)->data)
+			compare_first_last(stack_a);	
 	}
 }

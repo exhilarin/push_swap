@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/28 16:58:00 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/03/30 01:34:44 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 16:12:25 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,10 +73,10 @@ int	calculate_cost(t_stack *node, t_stack *stack)
 		current = current->next;
 	}
 	node->index = index;
-	if (index <= stack->size / 2)
+	if (index <= stack_size(stack) / 2)
 		node->cost = index;
 	else
-		node->cost = stack->size - index;
+		node->cost = stack_size(stack) - index;
 
 	return (node->cost);
 }

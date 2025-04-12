@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:22:48 by iguney            #+#    #+#             */
-/*   Updated: 2025/03/29 20:37:00 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 12:07:31 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,18 @@ int	stack_size(t_stack *stack)
 	return (size);
 }
 
-int	is_sorted(t_stack *stack)
+int	is_sorted_b(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->data < stack->next->data)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+int	is_sorted_a(t_stack *stack)
 {
 	while (stack->next)
 	{
