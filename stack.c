@@ -6,11 +6,34 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 02:13:11 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/12 23:04:08 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 00:41:40 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int first_control(int ac, char *av[])
+{
+	int i;
+
+	if (ac < 2)
+		return (error(NULL));
+	i = 1;
+	while (i < ac)
+	{
+		if (is_space(av[i][0]))
+			return (error());
+		i++;
+	}
+	i = 1;
+	while (i < ac)
+	{
+		if (av[i][0] == '\0')
+			return (error());
+		i++;
+	}
+	return (1);
+}
 
 void take_argv(t_stack **stack_a, char *av[])
 {

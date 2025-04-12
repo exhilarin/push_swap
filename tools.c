@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 02:22:48 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/12 23:00:12 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 00:24:34 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ t_stack	*get_last_node(t_stack *stack)
 	return (last);
 }
 
-int error(void)
+int error()
 {
 	ft_printf("Error!\n");
 	exit(0);

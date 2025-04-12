@@ -24,7 +24,8 @@ typedef struct s_stack
 	struct s_stack	*next;
 } t_stack;
 
-void	take_argv(t_stack **stack_a, char *av[]);
+int		first_control(int ac, char *av[]);
+void 	take_argv(t_stack **stack_a, char *av[]);
 char	**seperate_argv(char *av[]);
 int		check_argv(char **splitted);
 
@@ -32,7 +33,6 @@ t_stack	*new_node(int data);
 void	add_back_to_stack(t_stack **stack, int data);
 void	add_front_to_stack(t_stack **stack, int data);
 void	del_one_from_stack(t_stack **stack, int data);
-void	print_stack(t_stack *stack);
 
 int		check_zero(const char *str);
 int		stack_size(t_stack *stack);
@@ -57,7 +57,7 @@ int	get_index(t_stack *node, t_stack *stack);
 void compare_first_last(t_stack **stack_a);
 t_stack *find_max_value(t_stack *stack);
 t_stack *find_min_value(t_stack *stack);
-int error(void);
+int error();
 
 void	swap_a(t_stack **stack_a, int flag);
 void	swap_b(t_stack **stack_b, int flag);
