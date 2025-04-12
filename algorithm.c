@@ -6,7 +6,7 @@
 /*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 23:21:51 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/12 16:11:35 by ilyas-guney      ###   ########.fr       */
+/*   Updated: 2025/04/12 17:35:22 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,21 +59,25 @@ t_stack	*find_best_match(t_stack *stack_a, t_stack *stack_b)
 
 t_stack *find_target_in_a(t_stack *stack_a, int data)
 {
-    t_stack *target = NULL;
-    t_stack *current = stack_a;
-    t_stack *smallest = stack_a;
+	t_stack	*target;
+	t_stack	*current;
+	int		min_greater;
 
-    while (current)
-    {
-        if (current->data > data && (!target || current->data < target->data))
-            target = current;
-        if (current->data < smallest->data)
-            smallest = current;
-        current = current->next;
-    }
-    if (target == NULL)
-        target = smallest;
-    return (target);
+	target = NULL;
+	current = stack_a;
+	min_greater = INT_MAX;
+	while (current)
+	{
+		if (current->data > data && current->data < min_greater)
+		{
+			min_greater = current->data;
+			target = current;
+		}
+		current = current->next;
+	}
+	if (target == NULL)
+		target = find_min_value(stack_a);
+	return (target);
 }
 
 t_stack	*find_target_in_b(t_stack *stack_b, int data)
@@ -95,6 +99,6 @@ t_stack	*find_target_in_b(t_stack *stack_b, int data)
 		current = current->next;
 	}
 	if (target == NULL)
-		target = stack_b;
+		target = find_max_value(stack_b);
 	return (target);
 }
