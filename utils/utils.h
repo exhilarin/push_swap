@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 11:42:02 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 02:37:31 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 05:57:19 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strdup(const char *s1);
 int				ft_strncmp(char *s1, char *s2, size_t n);
 int				check_zero(const char *str);
-int				is_digit(char *str);
+int             is_digit(char *str);
 int				is_space(char c);
 void			free_str(char **str);
 int				is_all_spaces(const char *str);

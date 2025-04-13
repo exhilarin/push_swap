@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/21 15:07:00 by ilyas-guney       #+#    #+#             */
-/*   Updated: 2025/04/13 03:48:17 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 06:01:06 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	is_digit(char *str)
 		if ((str[i] > '9' || str[i] < '0') && (str[i] != '-' && str[i] != '+'))
 			return (0);
 		if (((ft_strlen(str)) == 1) && (str[i] == '-' || str[i] == '+'))
+			return (0);
+		if ((str[i] == '-' || str[i] == '+') &&  str[i + 1] == '\0')
 			return (0);
 	}
 	return (1);

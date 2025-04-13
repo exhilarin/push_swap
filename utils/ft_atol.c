@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 23:48:04 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 04:12:02 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 06:02:02 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ long	ft_atol(const char *str)
 	{
 		result = result * 10 + (str[i++] - '0');
 		if (result * sign > 2147483647 || result * sign < -2147483648)
-			error();
+			return (0);
 	}
 	return (result * sign);
 }
