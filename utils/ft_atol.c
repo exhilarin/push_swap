@@ -6,12 +6,11 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/20 23:48:04 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 02:39:15 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 04:12:02 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
-#include "stdio.h"
 
 long	ft_atol(const char *str)
 {
@@ -22,9 +21,6 @@ long	ft_atol(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\t' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r')
-		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
@@ -33,8 +29,9 @@ long	ft_atol(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		result = (result * 10) + (str[i] - '0');
-		i++;
+		result = result * 10 + (str[i++] - '0');
+		if (result * sign > 2147483647 || result * sign < -2147483648)
+			error();
 	}
 	return (result * sign);
 }

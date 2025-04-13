@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 02:13:11 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 04:13:45 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 03:01:30 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,10 +90,12 @@ int	check_argv(char **splitted, t_stack **stack_a)
 		j = 1;
 		if (!is_digit(splitted[i]))
 			return (free_stack(*stack_a), free_str(splitted), error());
-		if (!(!check_zero(splitted[i])) || ft_atol(splitted[i]) == 0)
+		if (!(!check_zero(splitted[i]) || ft_atol(splitted[i]) == 0))
 			return (free_stack(*stack_a), free_str(splitted), error());
 		if (INT_MAX < ft_atol(splitted[i])
 			|| INT_MIN > ft_atol(splitted[i]))
+			return (free_stack(*stack_a), free_str(splitted), error());
+		if (ft_strlen(splitted[i]) > 11)
 			return (free_stack(*stack_a), free_str(splitted), error());
 		while (splitted[i + j])
 		{
