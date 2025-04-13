@@ -6,7 +6,7 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 02:46:00 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 07:08:57 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 08:08:20 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include <stdlib.h>
 # include <stdio.h>
-# include "./utils/utils.h"
-# include "./bonus/get_next_line/get_next_line.h"
-# include "./ft_printf/ft_printf.h"
+# include "./utils_bonus/utils_bonus.h"
+# include "../ft_printf/ft_printf.h"
+# include "./get_next_line/get_next_line.h"
 
 # define INT_MAX 2147483647
 # define INT_MIN -2147483648
@@ -89,5 +89,6 @@ void	rotate_rotate(t_stack **stack_a, t_stack **stack_b);
 void	rev_rotate_a(t_stack **stack_a, int flag);
 void	rev_rotate_b(t_stack **stack_b, int flag);
 void	rev_rotate_rotate(t_stack **stack_a, t_stack **stack_b);
+
 
 #endif

@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.h                                            :+:      :+:    :+:   */
+/*   utils_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 11:42:02 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 07:51:20 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 07:53:47 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTILS_H
-# define UTILS_H
+#ifndef UTILS_BONUS_H
+# define UTILS_BONUS_H
 
-# include "../ft_printf/ft_printf.h"
-# include "../push_swap.h"
+# include "../../ft_printf/ft_printf.h"
+# include "../push_swap_bonus.h"
 # include <stdlib.h>
 # include <unistd.h>
 

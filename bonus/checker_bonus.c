@@ -6,14 +6,14 @@
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2025/04/13 07:26:16 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 08:08:11 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap_bonus.h"
-#include "../bonus/get_next_line/get_next_line.h"
+#include "./push_swap_bonus.h"
+#include "./get_next_line/get_next_line.h"
 
-static	exit_error(void)
+static	void exit_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
