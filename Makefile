@@ -8,8 +8,7 @@ UTILS_PATH = ./utils
 UTILS= $(UTILS_PATH)/utils.a
 OBJS= $(SRCS:.c=.o)
 
-all: $(NAME) clean
-	@clear
+all: $(NAME)
 
 $(NAME): $(PRINTF) $(UTILS) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) $(UTILS) $(PRINTF) -o $(NAME)
@@ -44,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean re fclean
+.PHONY: all clean fclean re
