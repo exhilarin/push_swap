@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
+/*   By: ilyas-guney <ilyas-guney@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/13 02:46:00 by iguney            #+#    #+#             */
-/*   Updated: 2025/04/13 02:53:26 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 17:23:43 by ilyas-guney      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ int		stack_size(t_stack *stack);
 void	free_stack(t_stack *stack);
 void	free_str(char **str);
 
+void print_stack(t_stack *stack);
 int		is_sorted_a(t_stack *stack);
 int		is_sorted_b(t_stack *stack);
 t_stack	*get_last_node(t_stack *stack);
