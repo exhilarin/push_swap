@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iguney <iguney@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/01 00:35:00 by yenyilma          #+#    #+#             */
-/*   Updated: 2025/04/13 04:52:02 by iguney           ###   ########.fr       */
+/*   Updated: 2025/04/13 07:26:16 by iguney           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap_bonus.h"
+#include "../bonus/get_next_line/get_next_line.h"
 
-static void	error_exit(void)
+static	exit_error(void)
 {
 	write(2, "Error\n", 6);
 	exit(1);
@@ -21,29 +22,29 @@ static void	error_exit(void)
 static void	execute_action(char *action, t_stack *a, t_stack *b)
 {
 	if (ft_strncmp(action, "sa\n", 3) == 0)
-		swap_a(a);
+		swap_a(&a, 0);
 	else if (ft_strncmp(action, "sb\n", 3) == 0)
-		swap_b(b);
+		swap_b(&b, 0);
 	else if (ft_strncmp(action, "ss\n", 3) == 0)
-		swap_swap(a, b);
+		swap_swap(&a, &b);
 	else if (ft_strncmp(action, "rra\n", 4) == 0)
-		rev_rotate_a(a);
+		rev_rotate_a(&a, 0);
 	else if (ft_strncmp(action, "rrb\n", 4) == 0)
-		rev_rotate_b(b);
+		rev_rotate_b(&b, 0);
 	else if (ft_strncmp(action, "rrr\n", 4) == 0)
-		rev_rotate_rotate(a, b);
+		rev_rotate_rotate(&a, &b);
 	else if (ft_strncmp(action, "pa\n", 3) == 0)
-		push_a(b, a);
+		push_a(&b, &a);
 	else if (ft_strncmp(action, "pb\n", 3) == 0)
-		push_b(a, b);
+		push_b(&a, &b);
 	else if (ft_strncmp(action, "ra\n", 3) == 0)
-		rotate_a(a);
+		rotate_a(&a, 0);
 	else if (ft_strncmp(action, "rb\n", 3) == 0)
-		rotate_b(b);
+		rotate_b(&b, 0);
 	else if (ft_strncmp(action, "rr\n", 3) == 0)
-		rotate_rotate(a, b);
+		rotate_rotate(&a, &b);
 	else
-		error_exit();
+		exit_error();
 }
 
 static void	read_actions(t_stack *a, t_stack *b)
@@ -60,7 +61,7 @@ static void	read_actions(t_stack *a, t_stack *b)
 	free(line);
 }
 
-static void	space_error(char **str)
+static void	error_space(char **str)
 {
 	int	flag;
 	int	i;
@@ -81,7 +82,7 @@ static void	space_error(char **str)
 			j++;
 		}
 		if (flag == 0)
-			error_exit();
+			exit_error();
 		flag = 0;
 		i++;
 	}
@@ -94,17 +95,17 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	stack_a = ft_stacknew();
-	stack_b = ft_stacknew();
-	if (parse(stack_a, ac, av) || !stack_a || !stack_b)
-		error_exit();
-	space_error(av);
+	stack_a = NULL;
+	stack_b = NULL;
+	if (take_argv(&stack_a, av) || !stack_a || !stack_b)
+		exit_error();
+	error_space(av);
 	read_actions(stack_a, stack_b);
-	if (is_sorted_a(stack_a) && stack_b->count == 0)
+	if (is_sorted_a(stack_a) && stack_size(stack_b) == 0)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
-	ft_stackclear(stack_a, free);
-	ft_stackclear(stack_b, free);
+	free_stack(stack_a);
+	free_stack(stack_b);
 	return (0);
 }
