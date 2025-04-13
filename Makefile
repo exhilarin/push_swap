@@ -35,6 +35,7 @@ $(PRINTF):
 	@make -C $(PRINTF_PATH)
 
 $(BONUS_UTILS):
+	cd bonus/utils_bonus
 	@make -C $(BONUS_UTILS_PATH)
 
 $(UTILS):
@@ -47,6 +48,7 @@ clean:
 	@rm -f $(OBJS) $(BOBJS)
 	@make clean -C $(PRINTF_PATH)
 	@make clean -C $(UTILS_PATH)
+	@make clean -C $(BONUS_UTILS_PATH)
 	@rm -rf $(PRINTF) $(UTILS)
 
 fclean: clean
@@ -54,6 +56,8 @@ fclean: clean
 	@make fclean -C $(PRINTF_PATH)
 	@rm -f $(NAME) $(UTILS)
 	@make fclean -C $(UTILS_PATH)
+	@make fclean -C $(BONUS_UTILS_PATH)
+	@rm -rf $(BONUS_UTILS)
 	@rm -rf ft_printf
 	@rm -rf libft
 
