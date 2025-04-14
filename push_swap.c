@@ -20,18 +20,18 @@ int	main(int ac, char *av[])
 	stack_a = NULL;
 	stack_b = NULL;
 	first_control(ac, av);
-	take_argv (&stack_a, av);
-	algorithm (&stack_a, &stack_b);
-	free_stack (stack_a);
+	take_argv(&stack_a, av);
+	algorithm(&stack_a, &stack_b);
+	free_stack(stack_a);
 	return (0);
 }
 
 void	algorithm(t_stack **stack_a, t_stack **stack_b)
 {
 	if (is_sorted_a(*stack_a))
-		return (free_stack(*stack_a), exit(0));
+		return (free_stack(*stack_a), exit(1));
 	if (stack_size(*stack_a) == 2)
-		return (swap_a(stack_a, 0), exit(0));
+		return (swap_a(stack_a, 0), free_stack(*stack_a), exit(0));
 	if (stack_size(*stack_a) == 3)
 		sort_for_three(stack_a);
 	else
